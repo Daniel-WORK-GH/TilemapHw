@@ -11,16 +11,16 @@ using UnityEngine;
 public class BFS
 {
     public static void FindPath<NodeType>(
-            IGraph<NodeType> graph, 
-            NodeType startNode, NodeType endNode, 
-            List<NodeType> outputPath, int maxiterations=1000)
+            IGraph<NodeType> graph,
+            NodeType startNode, NodeType endNode,
+            List<NodeType> outputPath, int maxiterations = 1000)
     {
         Queue<NodeType> openQueue = new Queue<NodeType>();
         HashSet<NodeType> openSet = new HashSet<NodeType>();
         Dictionary<NodeType, NodeType> previous = new Dictionary<NodeType, NodeType>();
         openQueue.Enqueue(startNode);
         openSet.Add(startNode);
-        int i; 
+        int i;
 
         for (i = 0; i < maxiterations; ++i)
         { // After maxiterations, stop and return an empty path
@@ -62,7 +62,7 @@ public class BFS
         }
     }
 
-    public static List<NodeType> GetPath<NodeType>(IGraph<NodeType> graph, NodeType startNode, NodeType endNode, int maxiterations=1000)
+    public static List<NodeType> GetPath<NodeType>(IGraph<NodeType> graph, NodeType startNode, NodeType endNode, int maxiterations = 1000)
     {
         List<NodeType> path = new List<NodeType>();
         FindPath(graph, startNode, endNode, path, maxiterations);
@@ -71,36 +71,36 @@ public class BFS
 
 
     public static bool CheckConnectedToXTiles<NodeType>(IGraph<NodeType> graph, NodeType startNode, int count)
-    {        
+    {
         HashSet<NodeType> openSet = new HashSet<NodeType>();
 
         bool CheckConnected(NodeType node)
-        {       
+        {
             UnityEngine.Debug.Log("Node = " + node);
-            if(openSet.Contains(node)) return false;
-            
+            if (openSet.Contains(node)) return false;
+
             openSet.Add(node);
 
-            if(openSet.Count >= count)
+            if (openSet.Count >= count)
             {
                 return true;
             }
-            
+
             var neigh = new List<NodeType>(graph.Neighbors(node));
 
             bool result = false;
 
             foreach (var neighbor in neigh)
-            {            
+            {
                 result = result || CheckConnected(neighbor);
             }
 
             return result;
         }
 
-        if(!graph.IsAllowed(startNode)) return false;
+        if (!graph.IsAllowed(startNode)) return false;
 
-        bool result = CheckConnected(startNode);;
+        bool result = CheckConnected(startNode);
         UnityEngine.Debug.Log(openSet.Count);
         return result;
     }
