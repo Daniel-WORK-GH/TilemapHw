@@ -4,7 +4,7 @@
 
 In this project i used most of the files from the lesson but i had to modify some of them.
 
-### Spawn enemies - Left click
+### Spawn enemies - Right click
 
 ## Part 1 
 
