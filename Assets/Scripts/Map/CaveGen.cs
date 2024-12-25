@@ -30,7 +30,7 @@ public class CaveGenerator
 
     private Random random;
 
-    public CaveGenerator(float randomFillPercent=0.5f, int gridSize=100)
+    public CaveGenerator(float randomFillPercent = 0.5f, int gridSize = 100)
     {
         this.randomFillPercent = randomFillPercent;
         this.gridSize = gridSize;
@@ -52,7 +52,8 @@ public class CaveGenerator
      * Generate a random map.
      * The map is not smoothed; call Smooth several times in order to smooth it.
      */
-    public void RandomizeMap()  {
+    public void RandomizeMap()
+    {
         //Init the old values so we can calculate the new values
         for (int x = 0; x < gridSize; x++)
         {
@@ -116,8 +117,8 @@ public class CaveGenerator
 
 
     //Given a cell, how many of the 8 surrounding cells are walls?
-    private int GetSurroundingWallCount(int cellX, int cellY) 
-{
+    private int GetSurroundingWallCount(int cellX, int cellY)
+    {
         int wallCounter = 0;
         for (int neighborX = cellX - 1; neighborX <= cellX + 1; neighborX ++)
         {
