@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     void ValidateSpawn()
     {
         Vector3Int startNode = tilemap.WorldToCell(transform.position);
-        if(!BFS.CheckConnectedToXTiles(tilegraph, startNode, 100))
+        if (!BFS.CheckConnectedToXTiles(tilegraph, startNode, 100))
         {
             transform.position = tilemap.CellToWorld(new Vector3Int(Random.Range(0, tilemap.size.x), Random.Range(0, tilemap.size.y), 0));
         }
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(!isValidSpawn)
+        if (!isValidSpawn)
         {
             ValidateSpawn();
             return;
