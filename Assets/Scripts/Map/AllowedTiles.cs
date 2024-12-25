@@ -17,6 +17,6 @@ public class AllowedTiles : MonoBehaviour
 
     public TileBase[] Get()
     {
-        return allowedTiles;  
+        return allowedTiles;
     }
 }
