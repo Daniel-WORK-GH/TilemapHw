@@ -120,7 +120,7 @@ public class CaveGenerator
     private int GetSurroundingWallCount(int cellX, int cellY)
     {
         int wallCounter = 0;
-        for (int neighborX = cellX - 1; neighborX <= cellX + 1; neighborX ++)
+        for (int neighborX = cellX - 1; neighborX <= cellX + 1; neighborX++)
         {
             for (int neighborY = cellY - 1; neighborY <= cellY + 1; neighborY++)
             {
