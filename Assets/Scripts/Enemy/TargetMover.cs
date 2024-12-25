@@ -8,9 +8,9 @@ using UnityEngine.Tilemaps;
  */
 public class TargetMover: MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     public Tilemap tilemap = null;
-    [SerializeField] 
+    [SerializeField]
     public AllowedTiles allowedTiles = null;
 
     [Tooltip("The speed by which the object moves towards the target, in meters (=grid units) per second")]
@@ -37,7 +37,7 @@ public class TargetMover: MonoBehaviour
         }
     }
 
-    public Vector3 GetTarget() 
+    public Vector3 GetTarget()
     {
         return targetInWorld;
     }
@@ -54,7 +54,7 @@ public class TargetMover: MonoBehaviour
 
     IEnumerator MoveTowardsTheTarget()
     {
-        for(;;)
+        for( ; ; )
         {
             yield return new WaitForSeconds(timeBetweenSteps);
             if (enabled && !atTarget)
@@ -67,7 +67,7 @@ public class TargetMover: MonoBehaviour
         Vector3Int startNode = tilemap.WorldToCell(transform.position);
         Vector3Int endNode = targetInGrid;
         List<Vector3Int> shortestPath = BFS.GetPath(tilemapGraph, startNode, endNode, maxIterations);
-        Debug.Log("shortestPath = " + string.Join(" , ",shortestPath));
+        Debug.Log("shortestPath = " + string.Join(" , ", shortestPath));
         if (shortestPath.Count >= 2)
         {
             Vector3Int nextNode = shortestPath[1];
