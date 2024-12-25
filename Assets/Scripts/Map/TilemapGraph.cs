@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 /**
  * A graph that represents a tilemap, using only the allowed tiles.
  */
-public class TilemapGraph: IGraph<Vector3Int>
+public class TilemapGraph : IGraph<Vector3Int>
 {
     private Tilemap tilemap;
     private TileBase[] allowedTiles;
@@ -28,7 +28,7 @@ public class TilemapGraph: IGraph<Vector3Int>
         int xOffset = 0;
         if (node.y % 2 != 0)
             xOffset = 1;
-            
+
         List<Vector3Int> List = new List<Vector3Int>
         {
             // On the same row.
@@ -46,7 +46,7 @@ public class TilemapGraph: IGraph<Vector3Int>
 
 
         foreach (var pos in List)
-        {             
+        {
             TileBase neighborTile = tilemap.GetTile(pos);
             Debug.Log("pos = " + pos + ", allowed = " + allowedTiles.Contains(neighborTile));
             Debug.Log("len = " + allowedTiles.Length);
