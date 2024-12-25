@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 /**
  * This component moves its object towards a given target position.
  */
-public class TargetMover: MonoBehaviour
+public class TargetMover : MonoBehaviour
 {
     [SerializeField]
     public Tilemap tilemap = null;
@@ -54,7 +54,7 @@ public class TargetMover: MonoBehaviour
 
     IEnumerator MoveTowardsTheTarget()
     {
-        for( ; ; )
+        for ( ; ; )
         {
             yield return new WaitForSeconds(timeBetweenSteps);
             if (enabled && !atTarget)
