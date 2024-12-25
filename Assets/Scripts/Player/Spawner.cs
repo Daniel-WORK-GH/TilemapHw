@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
 
             Vector2 spawnPosition = new Vector2(worldPosition.x, worldPosition.y) + spawnOffset;
 
-            var obj = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);    
+            var obj = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
 
             var chase = obj.GetComponent<Chaser>();
 
