@@ -10,7 +10,7 @@ using System.Collections;
  * Since: 2020-12
  */
 
-public class TileCaveGen: MonoBehaviour
+public class TileCaveGen : MonoBehaviour
 {
     [SerializeField] Tilemap tilemap = null;
 
@@ -76,7 +76,7 @@ public class TileCaveGen: MonoBehaviour
             for (int x = 0; x < gridSize; x++)
             {
                 var position = new Vector3Int(x, y, 0);
-                var tile = data[x, y] == 1 ? wallTile: floorTile;
+                var tile = data[x, y] == 1 ? wallTile : floorTile;
                 tilemap.SetTile(position, tile);
             }
         }
